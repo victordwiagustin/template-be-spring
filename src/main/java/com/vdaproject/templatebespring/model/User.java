@@ -2,25 +2,25 @@ package com.vdaproject.templatebespring.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.io.Serializable;
-import java.util.UUID;
+import java.sql.Timestamp;
 
 @Entity
 public class User implements Serializable {
     private String id;
     private String email;
-    private String name;
+    private String fullName;
+    private String username;
+    private String password;
+    private Timestamp registrationDate;
 
     public User() {
     }
 
     @Id
     public String getId() {
-//        // FIXME: this looks like bad idea
-//        return id == null || id.equals("") ? UUID.randomUUID().toString() : id;
         return id;
     }
 
@@ -37,12 +37,36 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Timestamp getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Timestamp registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
     // TODO: Transient
