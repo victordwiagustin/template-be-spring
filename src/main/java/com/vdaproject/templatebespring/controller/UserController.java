@@ -1,7 +1,9 @@
 package com.vdaproject.templatebespring.controller;
 
+import com.vdaproject.templatebespring.dto.UserRegistrationDTO;
 import com.vdaproject.templatebespring.model.User;
 import com.vdaproject.templatebespring.service.UserService;
+import com.vdaproject.templatebespring.util.DTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private DTOMapper dtoMapper;
 
     @GetMapping("/get-all-users")
     public ResponseEntity<List<User>> getAllUsers(@RequestParam(required = false) String userId) {
@@ -31,12 +36,15 @@ public class UserController {
         }
     }
 
-    // TODO: validation exist
-    @PostMapping("/save-user")
-    public ResponseEntity<User> saveUser(@RequestBody User user) {
+    @PostMapping("/register-user")
+    public ResponseEntity<User> registerUser(@RequestBody UserRegistrationDTO userRegistrationDTO) {
         try {
-            User newUser = userService.saveUser(user);
-            return new ResponseEntity<>(newUser, HttpStatus.OK);
+            // TODO: change saveUser parameter from User to UserRegistrationDTO
+            // TODO: validation exist, username criteria, etc
+            // TODO: response object DTO -> hide the password + wrapped by object payload
+            var user = dtoMapper.convertDtoToUser(userRegistrationDTO);
+            var savedUser = userService.saveUser(user);
+            return new ResponseEntity<>(savedUser, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
