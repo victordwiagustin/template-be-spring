@@ -3,20 +3,20 @@ package com.vdaproject.templatebespring.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-public class UserRegistrationDTO {
+import java.sql.Timestamp;
+
+public class UserDto {
     @Getter
     @Setter
     private String email;
-
     @Getter
     @Setter
     private String fullName;
-
     @Getter
     @Setter
     private String username;
-
     @Getter
     @Setter
-    private String password;
+    private Timestamp registrationDate;
+
 }

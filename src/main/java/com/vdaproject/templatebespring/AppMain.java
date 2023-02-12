@@ -25,6 +25,7 @@ public class AppMain {
 	TODO: Save File with Base64
 	TODO: DateTime converter
 	TODO: DTO
+	TODO: Logger
 	*/
 
 	/*
