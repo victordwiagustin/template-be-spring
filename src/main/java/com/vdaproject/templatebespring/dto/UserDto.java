@@ -9,12 +9,15 @@ public class UserDto {
     @Getter
     @Setter
     private String email;
+
     @Getter
     @Setter
     private String fullName;
+
     @Getter
     @Setter
     private String username;
+
     @Getter
     @Setter
     private Timestamp registrationDate;
