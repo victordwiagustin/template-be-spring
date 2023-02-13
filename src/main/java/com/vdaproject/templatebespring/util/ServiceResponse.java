@@ -1,6 +1,6 @@
 package com.vdaproject.templatebespring.util;
 
-import com.vdaproject.templatebespring.enums.ServiceResponseStatusEnum;
+import com.vdaproject.templatebespring.enums.ServiceResponseStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,14 +10,14 @@ public class ServiceResponse<T> {
     private T payload;
     @Getter
     @Setter
-    private ServiceResponseStatusEnum status;
+    private ServiceResponseStatus status;
 
-    public ServiceResponse(T payload, ServiceResponseStatusEnum status) {
+    public ServiceResponse(T payload, ServiceResponseStatus status) {
         this.payload = payload;
         this.status = status;
     }
 
-    public ServiceResponse(ServiceResponseStatusEnum status) {
+    public ServiceResponse(ServiceResponseStatus status) {
         this.status = status;
     }
 }

@@ -1,17 +1,17 @@
 package com.vdaproject.templatebespring.exceptions;
 
-import com.vdaproject.templatebespring.util.ServiceResponse;
+import com.vdaproject.templatebespring.enums.ServiceResponseStatus;
 import lombok.Getter;
 
 public class ServiceResponseException extends Exception {
     @Getter
-    private ServiceResponse<?> serviceResponse;
+    private ServiceResponseStatus serviceResponseStatus;
 
     public ServiceResponseException(String message) {
         super(message);
     }
 
-    public ServiceResponseException(ServiceResponse<?> serviceResponse) {
-        this.serviceResponse = serviceResponse;
+    public ServiceResponseException(ServiceResponseStatus serviceResponseStatus) {
+        this.serviceResponseStatus = serviceResponseStatus;
     }
 }

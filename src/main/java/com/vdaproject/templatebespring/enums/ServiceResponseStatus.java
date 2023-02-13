@@ -1,6 +1,6 @@
 package com.vdaproject.templatebespring.enums;
 
-public enum ServiceResponseStatusEnum {
+public enum ServiceResponseStatus {
     SUCCESS,
     ERROR,
     FAILED,
