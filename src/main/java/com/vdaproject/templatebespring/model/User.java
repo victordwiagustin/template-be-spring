@@ -4,11 +4,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-public class User implements Serializable {
+public class User extends BaseModel {
     private String id;
     private String email;
     private String fullName;

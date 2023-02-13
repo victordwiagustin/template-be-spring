@@ -13,7 +13,7 @@ public class AppMain {
 	/*
 	TODO: Controller POST (UPDATE, DELETE ?) + handle list req param
 	TODO: Transactional - Save / Update
-	TODO: BaseModel -> mappedSuperClass
+	TODO: BaseModel -> mappedSuperClass ✅
 	TODO: Relational Data Table
 	TODO: Paging, sorting & filtering using JPA repository methods
 	TODO: Data Seeding (Db populate)
@@ -24,7 +24,7 @@ public class AppMain {
 	TODO: Save File with multipart
 	TODO: Save File with Base64
 	TODO: DateTime converter
-	TODO: DTO
+	TODO: DTO ✅
 	TODO: Logger
 	*/
 
