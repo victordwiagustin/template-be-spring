@@ -4,8 +4,10 @@ import com.vdaproject.templatebespring.dto.UserDto;
 import com.vdaproject.templatebespring.dto.UserRegistrationDto;
 import com.vdaproject.templatebespring.enums.ServiceResponseStatus;
 import com.vdaproject.templatebespring.exceptions.ServiceResponseException;
+import com.vdaproject.templatebespring.model.UserRole;
 import com.vdaproject.templatebespring.model.User;
 import com.vdaproject.templatebespring.repository.UserRepository;
+import com.vdaproject.templatebespring.repository.UserRoleRepository;
 import com.vdaproject.templatebespring.util.DTOMapper;
 import com.vdaproject.templatebespring.util.PasswordUtil;
 import com.vdaproject.templatebespring.util.ServiceResponse;
@@ -16,9 +18,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserManagementServiceImpl implements UserManagementService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserRoleRepository userRoleRepository;
 
     @Autowired
     private DTOMapper dtoMapper;
@@ -49,6 +53,19 @@ public class UserServiceImpl implements UserService {
             return new ServiceResponse<>(dtoMapper.toUserDto(savedUser), ServiceResponseStatus.SUCCESS);
         } catch (ServiceResponseException e) {
             return new ServiceResponse<>(e.getServiceResponseStatus());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ServiceResponse<>(ServiceResponseStatus.ERROR);
+        }
+    }
+
+    @Override
+    @Transactional(rollbackOn = { Exception.class }) // TODO: test rollback
+    public ServiceResponse<UserRole> addUserRole(String roleName) {
+        try {
+            var userRole = new UserRole(roleName);
+            var savedUserRole = userRoleRepository.save(userRole);
+            return new ServiceResponse<>(savedUserRole, ServiceResponseStatus.SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
             return new ServiceResponse<>(ServiceResponseStatus.ERROR);

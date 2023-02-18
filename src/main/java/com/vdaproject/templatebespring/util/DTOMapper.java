@@ -12,6 +12,7 @@ import java.text.ParseException;
 public class DTOMapper {
     private static final ModelMapper modelMapper = new ModelMapper();
 
+    // TODO: Logic set datanya JANGAN TARUH SINI -> disini pure nge-map saja
     public User toUser(UserRegistrationDto userRegistrationDTO) {
         var user = modelMapper.map(userRegistrationDTO, User.class);
 

@@ -1,5 +1,6 @@
 package com.vdaproject.templatebespring.model;
 
+import com.vdaproject.templatebespring.model.base.BaseModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
