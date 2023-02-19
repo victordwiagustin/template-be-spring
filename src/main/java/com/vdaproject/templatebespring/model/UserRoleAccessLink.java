@@ -5,23 +5,23 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+//@Entity
 public class UserRoleAccessLink extends BaseModel {
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
-
-    @Getter
-    @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("userRoleId")
-    private UserRole userRole;
-
-    @Getter
-    @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("userAccessId")
-    private UserAccess userAccess;
+//    @Getter
+//    @Setter
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.UUID)
+//    private String id;
+//
+//    @Getter
+//    @Setter
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @MapsId("userRoleId")
+//    private UserRole userRole;
+//
+//    @Getter
+//    @Setter
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @MapsId("userAccessId")
+//    private UserAccess userAccess;
 }

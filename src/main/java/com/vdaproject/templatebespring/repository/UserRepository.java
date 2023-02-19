@@ -8,3 +8,14 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, String> {
     User findFirstByUsernameOrderByRegistrationDateDesc(String username);
 }
+
+
+// EXAMPLE - join fetch
+// https://stackoverflow.com/questions/15359306/how-to-fetch-fetchtype-lazy-associations-with-jpa-and-hibernate-in-a-spring-cont
+//
+//public interface PersonRepository extends JpaRepository<Person, Long> {
+//
+//    @Query("SELECT p FROM Person p JOIN FETCH p.roles WHERE p.id = (:id)")
+//    public Person findByIdAndFetchRolesEagerly(@Param("id") Long id);
+//
+//}

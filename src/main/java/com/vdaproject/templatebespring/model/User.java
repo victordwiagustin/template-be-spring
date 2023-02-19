@@ -1,10 +1,7 @@
 package com.vdaproject.templatebespring.model;
 
 import com.vdaproject.templatebespring.model.base.BaseModel;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +29,10 @@ public class User extends BaseModel {
     @Getter
     @Setter
     private Timestamp registrationDate;
+    @Getter
+    @Setter
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<UserRole> userRoles;
 
     public User() {
     }
