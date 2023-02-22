@@ -21,7 +21,7 @@ public class UserRole extends BaseModel {
     private String roleName;
     @Getter
     @Setter
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE) // TODO: Read https://www.baeldung.com/jpa-cascade-types
     private List<UserAccess> userAccesses;
 
     public UserRole() {
@@ -29,6 +29,13 @@ public class UserRole extends BaseModel {
 
     public UserRole(String roleName) {
         this.roleName = roleName;
+        this.createdDate = DateUtil.now();
+        this.updatedDate = null;
+    }
+
+    public UserRole(String roleName, List<UserAccess> userAccesses) {
+        this.roleName = roleName;
+        this.userAccesses = userAccesses;
         this.createdDate = DateUtil.now();
         this.updatedDate = null;
     }
