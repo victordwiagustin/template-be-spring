@@ -1,8 +1,11 @@
 import React from "react";
 import "./App.scss";
+import LoginPage from "./contents/login/LoginPage";
 
 function App() {
-  return <div className="text-3xl font-bold underline">Hello World</div>;
+  return (
+    <LoginPage />
+  );
 }
 
 export default App;
